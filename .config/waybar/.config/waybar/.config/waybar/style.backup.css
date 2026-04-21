@@ -1,0 +1,86 @@
+@import "colors.css";
+
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 13px;
+  min-height: 0;
+  border: none;
+  text-shadow: none;
+  box-shadow: none;
+}
+
+window#waybar {
+  background: transparent;
+  color: @on-surface;
+}
+
+window#waybar > box {
+  background: @surface;
+  border: 1px solid @outline;
+  border-radius: 6px;
+  margin: 6px;
+  padding: 4px 6px;
+}
+
+#workspaces,
+#clock,
+#pulseaudio,
+#network,
+#battery,
+#tray,
+#window,
+#custom-notification,
+#custom-power {
+  background: @surface-variant;
+  color: @on-surface-variant;
+  border: 1px solid @outline;
+  border-radius: 4px;
+  padding: 4px 10px;
+  margin: 0 3px;
+}
+
+#workspaces button {
+  background: transparent;
+  color: @on-surface-variant;
+  border-radius: 3px;
+  padding: 0 8px;
+}
+
+#workspaces button:hover {
+  background: @hover;
+  color: @on-hover;
+}
+
+#workspaces button.active {
+  background: @primary;
+  color: @on-primary;
+}
+
+#clock {
+  color: @tertiary;
+}
+
+#pulseaudio,
+#network {
+  color: @secondary;
+}
+
+#battery {
+  color: @primary;
+}
+
+#battery.warning {
+  color: @error;
+}
+
+#battery.critical {
+  background: @error;
+  color: @on-error;
+}
+
+tooltip {
+  background: @surface-variant;
+  color: @on-surface;
+  border: 1px solid @outline;
+  border-radius: 4px;
+}

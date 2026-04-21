@@ -1,0 +1,130 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "general": {
+        "playerName": "spotify"
+    },
+    "logo": {
+        "type": "kitty",
+        "source": "/home/kazte/.config/fastfetch/images/manhunt.png",
+        "width": 24,
+        "padding": {
+            "left": 1,
+            "right": 3,
+            "top": 1
+        },
+        "chafa": {
+            "fgOnly": false,
+            "symbols": "block"
+        }
+    },
+    "display": {
+        "separator": "  ",
+        "key": {
+            "width": 10
+        },
+        "color": {
+            "keys": "#c4c4c4",
+            "title": "white",
+            "output": "white"
+        },
+        "brightColor": true
+    },
+    "modules": [
+        {
+            "type": "custom",
+            "format": "┌───────────────────────────────┐",
+            "outputColor": "bright_black"
+        },
+        {
+            "type": "title",
+            "key": " ",
+            "format": "{user-name}@{host-name}",
+            "outputColor": "white"
+        },
+        {
+            "type": "custom",
+            "format": "├────────── system ─────────────┤",
+            "outputColor": "bright_black"
+        },
+        {
+            "type": "os",
+            "key": "os",
+            "format": "{name}"
+        },
+        {
+            "type": "kernel",
+            "key": "krnl",
+            "format": "{release}"
+        },
+        {
+            "type": "uptime",
+            "key": "up",
+            "format": "{hours}h {minutes}m"
+        },
+        {
+            "type": "custom",
+            "format": "├────────── env ────────────────┤",
+            "outputColor": "bright_black"
+        },
+        {
+            "type": "de",
+            "key": "de",
+            "format": "{result}"
+        },
+        {
+            "type": "wmtheme",
+            "key": "theme",
+            "format": "{1}"
+        },
+        {
+            "type": "terminal",
+            "key": "term",
+            "format": "{pretty-name}"
+        },
+        {
+            "type": "shell",
+            "key": "sh",
+            "format": "{pretty-name}"
+        },
+        {
+            "type": "custom",
+            "format": "├────────── hardware ───────────┤",
+            "outputColor": "bright_black"
+        },
+        {
+            "type": "cpu",
+            "key": "cpu",
+            "format": "{name}"
+        },
+        {
+            "type": "gpu",
+            "key": "gpu",
+            "format": "{name}"
+        },
+        {
+            "type": "memory",
+            "key": "ram",
+            "format": "{used}/{total}"
+        },
+        {
+            "type": "custom",
+            "format": "├────────── now playing ────────┤",
+            "outputColor": "bright_black"
+        },
+        {
+            "type": "command",
+            "key": "spotify",
+            "shell": "/bin/bash",
+            "param": "-c",
+            "text": "playerctl -p spotify metadata --format '{{ artist }} - {{ title }}' 2>/dev/null || echo 'silence'",
+            "format": "{result}",
+            "outputColor": "white",
+            "parallel": false
+        },
+        {
+            "type": "custom",
+            "format": "└───────────────────────────────┘",
+            "outputColor": "bright_black"
+        }
+    ]
+}
