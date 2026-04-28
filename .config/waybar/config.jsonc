@@ -1,169 +1,144 @@
 {
-    "layer": "top",
-    "position": "top",
-    "height": 36,
-    "spacing": 4,
-    "modules-left": [
-        "hyprland/workspaces",
-    ],
-    "modules-center": [
-        
-        "hyprland/window"
-    ],
-    "modules-right": [
-        "tray",
-        "network",
-        "bluetooth",
-        "group/hardware",
-        "pulseaudio",
-        "battery",
-        "custom/notification",
-        "clock",
-        "custom/power"
-    ],
-    "hyprland/workspaces": {
-        "format": "{name}",
-        "on-click": "activate",
-        "sort-by-number": true,
-        "persistent-workspaces": {
-            "DP-1": [
-                1
-            ],
-            "DP-2": [
-                2
-            ]
-        },
-        "format-icons": {
-            "active": "󰮯",
-            "default": "󰊠"
-        }
+  "layer": "top",
+  "position": "top",
+  "height": 36,
+  "spacing": 4,
+  "modules-left": ["hyprland/workspaces", "custom/spotify"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": [
+    "tray",
+    "network",
+    "bluetooth",
+    "pulseaudio",
+    "battery",
+    "custom/notification",
+    "clock",
+    "custom/power",
+  ],
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "on-click": "activate",
+    "sort-by-number": true,
+    "persistent-workspaces": {
+      "DP-1": [1, 2],
+      "DP-2": [3, 4],
     },
-    "hyprland/window": {
-        "format": "󱂬 {title}",
-        "max-length": 19,
-        "rewrite": {
-            "": "Hyprland",
-            "(.*) — Mozilla Firefox": "󰈹 Firefox",
-            "(.*) - Ghostty": "❯ Terminal"
-        }
+    "format-icons": {
+      "active": "󰮯",
+      "default": "󰊠",
     },
-    "wlr/taskbar": {
-        "format": "{icon}",
-        "icon-size": 15,
-        "tooltip-format": "{title}",
-        "on-click": "activate",
-        "on-click-middle": "close",
-        "ignore-list": [
-            "Alacritty"
-        ],
-        "app_ids-mapping": {
-            "firefoxdeveloperedition": "firefox-developer-edition"
-        },
-        "rewrite": {
-            "Firefox Web Browser": "Firefox",
-            "Foot Server": "Terminal",
-            ".*(steam_app_[0-9]+).*": "Game"
-        }
+  },
+  "hyprland/window": {
+    "format": "󱂬 {title}",
+    "max-length": 19,
+    "rewrite": {
+      "": "Hyprland",
+      "(.*) — Mozilla Firefox": "󰈹 Firefox",
+      "(.*) - Ghostty": "❯ Terminal",
     },
-    "clock": {
-        "format": "{:%Y-%m-%d 󱑂 %H:%M}",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>"
+  },
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 15,
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "ignore-list": ["Alacritty"],
+    "app_ids-mapping": {
+      "firefoxdeveloperedition": "firefox-developer-edition",
     },
-    "network": {
-        "format-wifi": "󰖩 {essid}",
-        "format-ethernet": "󰈀 {ifname}",
-        "format-disconnected": "󰖪 Disconnected",
-        "on-click": "ghostty --class=com.app.gazelle -e gazelle"
+    "rewrite": {
+      "Firefox Web Browser": "Firefox",
+      "Foot Server": "Terminal",
+      ".*(steam_app_[0-9]+).*": "Game",
     },
-    "bluetooth": {
-        "format": "󰂯 {status}",
-        "format-connected": "󰂱 {device_alias}",
-        "format-connected-battery": "󰂱 {device_alias} {device_battery_percentage}%",
-        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+  },
+  "clock": {
+    "format": "{:%Y-%m-%d 󱑂 %H:%M}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+  },
+  "network": {
+    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰖪",
+    "on-click": "ghostty --class=com.app.gazelle -e gazelle",
+    "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 15,
+  },
+  "bluetooth": {
+    "format": "󰂯",
+    "format-connected": "󰂱",
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
     "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-        "on-click": "ghostty --class=com.app.bluetui -e bluetui"
+    "on-click": "ghostty --class=com.app.bluetui -e bluetui",
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 Muted",
+    "format-icons": {
+      "headphone": "󰋋",
+      "default": ["󰕿", "󰖀", "󰕾"],
     },
-    "cpu": {
-        "format": " {usage}% ",
-        "interval": 2,
-        "on-click": "ghostty --class=com.app.btop -e btop"
+    "on-click": "pavucontrol",
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15,
     },
-    "memory": {
-        "format": "󰑭 {used:0.1f}G/{total:0.1f}G",
-        "interval": 5,
-        "on-click": "ghostty --class=com.app.btop -e btop"
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+  },
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂚",
+      "dnd-notification": "󱏧",
+      "dnd-none": "󱏧",
+      "inhibited-notification": "󱅫",
+      "inhibited-none": "󰂚",
+      "dnd-inhibited-notification": "󱏧",
+      "dnd-inhibited-none": "󱏧",
     },
-    "group/hardware": {
-        "orientation": "horizontal",
-        "modules": [
-            "cpu",
-            "memory"
-        ],
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true,
+  },
+  "custom/power": {
+    "format": "⏻",
+    "tooltip": false,
+    "menu": "on-click",
+    "menu-file": "~/.config/waybar/xml/power_menu.xml",
+    "menu-actions": {
+      "shutdown": "shutdown",
+      "reboot": "reboot",
+      "suspend": "systemctl suspend",
+      "hibernate": "systemctl hibernate",
+      "lock": "notify-send \"lock\"",
+      "logout": "notify-send \"logout\"",
     },
-    "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-muted": "󰝟 Muted",
-        "format-icons": {
-            "headphone": "󰋋",
-            "default": [
-                "󰕿",
-                "󰖀",
-                "󰕾"
-            ]
-        },
-        "on-click": "pavucontrol"
-    },
-    "battery": {
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon} {capacity}%",
-        "format-charging": "󰂄 {capacity}%",
-        "format-icons": [
-            "󰂎",
-            "󰁺",
-            "󰁻",
-            "󰁼",
-            "󰁽",
-            "󰁾",
-            "󰁿",
-            "󰂀",
-            "󰂁",
-            "󰂂",
-            "󰁹"
-        ]
-    },
-    "custom/notification": {
-        "tooltip": false,
-        "format": "{icon}",
-        "format-icons": {
-            "notification": "󱅫",
-            "none": "󰂚",
-            "dnd-notification": "󱏧",
-            "dnd-none": "󱏧",
-            "inhibited-notification": "󱅫",
-            "inhibited-none": "󰂚",
-            "dnd-inhibited-notification": "󱏧",
-            "dnd-inhibited-none": "󱏧"
-        },
-        "return-type": "json",
-        "exec-if": "which swaync-client",
-        "exec": "swaync-client -swb",
-        "on-click": "swaync-client -t -sw",
-        "on-click-right": "swaync-client -d -sw",
-        "escape": true
-    },
-    "custom/power": {
-        "tooltip": true,
-        "format": "⏻",
-        "tooltip-format": "Power menu",
-        "on-click": "wlogout"
-    },
-    "tray": {
-        "icon-size": 16,
-        "spacing": 10
-    }
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 10,
+  },
+  "custom/spotify": {
+    "exec": "~/.config/waybar/scripts/spotify.sh",
+    "interval": 0.15,
+    "format": "{}",
+    "escape": true,
+    "max-length": 15,
+    "on-click": "spotify",
+  },
 }

@@ -1,11 +1,14 @@
-@define-color center-bg rgba(8, 9, 12, 0.9);
-@define-color background #08090c;
-@define-color background-alt #101216;
+@import "~/.config/waybar/colors.css";
 
-@define-color text #e0d3c2;
-@define-color text-alt #7a6f63;
+@define-color center-bg    alpha(@background, 0.8);
+@define-color notification-bg           alpha(@background, 0.9);
+@define-color center-notification-bg    @background;
+@define-color background                @surface;
+@define-color background-alt            @surface_variant;
 
-@define-color selected alpha(#a1121f, .35);
-@define-color hover alpha(#a1121f, .2);
+@define-color text                      @on_surface;
+@define-color text-alt                  @on_surface_variant;
 
-@define-color urgent #c94a4a;
+@define-color selected                  alpha(@on_surface_variant, 0.4);
+@define-color hover                     alpha(@on_surface_variant, 0.2);
+@define-color urgent                    @error;

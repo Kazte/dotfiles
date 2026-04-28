@@ -1,9 +1,0 @@
-[02:06:40 2026-04-12] FETCHING Version 2.43.1
-[02:06:40 2026-04-12] CREATING /home/kazte/.spicetify
-[02:06:40 2026-04-12] DOWNLOADING https://github.com/spicetify/cli/releases/download/v2.43.1/spicetify-2.43.1-linux-amd64.tar.gz
-[02:06:40 2026-04-12] EXTRACTING /home/kazte/.spicetify/spicetify.tar.gz
-[02:06:40 2026-04-12] SETTING EXECUTABLE PERMISSIONS TO /home/kazte/.spicetify/spicetify
-[02:06:40 2026-04-12] REMOVING /home/kazte/.spicetify/spicetify.tar.gz
-[02:06:40 2026-04-12] APPENDING /home/kazte/.spicetify to PATH in /home/kazte/.config/fish/config.fish
-[02:06:40 2026-04-12] spicetify v2.43.1 was installed successfully to /home/kazte/.spicetify
-[02:06:40 2026-04-12] Run 'spicetify --help' to get started
